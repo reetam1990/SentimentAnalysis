@@ -10,6 +10,6 @@ nltk>=3.4.5
 pickleshare==0.7.5
 # cloudpickle==1.2.2
 itsdangerous==2.0.1
-# Werkzeug==0.15.5
+werkzeug==2.0.3
 cython>=0.29.15
 MarkupSafe==2.0.1
