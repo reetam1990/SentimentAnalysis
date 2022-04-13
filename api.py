@@ -48,6 +48,7 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
     User = request.form.get('User')
+    Output=""
 #    Input = [[User]]
     print("user input*******",User)
     sample = pd.read_csv("Data/sample30.csv")
@@ -58,7 +59,11 @@ def predict():
     final_recommend=user_choices.sort_values('sentiment_score',ascending=False)
     final_recommend=final_recommend.head(5)
     prediction = final_recommend
-    return render_template('index.html', OUTPUT=str(prediction.name))
+    count=0
+    for i in prediction.name:
+        count=count+1
+        Output=Output+" , "+str(count)+") "+str(i)
+    return render_template('index.html', OUTPUT=Output)
 
 if __name__ == "__main__":
     app.run(debug=True)
